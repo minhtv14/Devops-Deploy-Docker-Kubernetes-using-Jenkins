@@ -13,7 +13,7 @@ pipeline {
         stage('Build Docker Image'){
             steps{
                 script{
-                    bat 'docker build -t m145/devops-integration .'
+                    bat 'docker build -t m145/devops-auto .'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps{
                 script{
                     bat 'docker login -u m145 -p Minh@docker2002'
-                    bat 'docker push m145/devops-integration'
+                    bat 'docker push m145/devops-auto'
                 }
             }
         }
