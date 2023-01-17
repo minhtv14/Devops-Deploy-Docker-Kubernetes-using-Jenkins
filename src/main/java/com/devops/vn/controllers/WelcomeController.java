@@ -21,7 +21,7 @@ public class WelcomeController {
 
     @GetMapping ("/")
     public ResponseEntity<String> welcome() {
-        return new ResponseEntity<String>("Wecome Spring Boot 3!", HttpStatus.OK);
+        return new ResponseEntity<String>("Wecome Spring Boot 3 & Spring Framework 6!", HttpStatus.OK);
     }
 
     @GetMapping ("/users")
