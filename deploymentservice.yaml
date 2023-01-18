@@ -15,7 +15,7 @@ spec:
       containers:
         - name: spring-boot-k8s
           image: m145/devops-auto # Image that will be used to containers in the cluster
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: rolling-update
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
 
