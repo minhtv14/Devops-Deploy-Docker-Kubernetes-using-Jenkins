@@ -18,7 +18,8 @@ spec:
           imagePullPolicy: rolling-update
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
-
+      imagePullSecrets:
+          - name: m145/devops-auto.com-registry-key
 
 ---
 
