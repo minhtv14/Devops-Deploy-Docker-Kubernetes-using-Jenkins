@@ -25,7 +25,7 @@ pipeline {
             steps{
                 script{
                     bat 'docker login -u m145 -p Minh@docker2002'
-                    bat 'docker push m145/devops-auto:new'
+                    bat 'docker push m145/devops-auto'
                 }
             }
         }
