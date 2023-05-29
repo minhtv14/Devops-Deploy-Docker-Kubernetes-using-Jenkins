@@ -21,8 +21,8 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    bat 'docker login -u m145 -p Minh@docker2002'
-                    bat 'docker push m145/devops-auto'
+                    sh 'docker login -u m145 -p Minh@docker2002'
+                    sh 'docker push m145/devops-auto'
                 }
             }
         }
