@@ -8,13 +8,13 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/minhtv14/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git']]])
-                bat 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
         stage('Build Docker Image'){
             steps{
                 script{
-                    bat 'docker build -t m145/devops-auto .'
+                    sh 'docker build -t m145/devops-auto .'
                 }
             }
         }
