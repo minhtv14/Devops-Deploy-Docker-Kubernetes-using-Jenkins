@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-demo
-  namespace: spring
+  name: bb-demo
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -14,15 +14,15 @@ spec:
         bb: web
     spec:
       containers:
-      - name: spring-site
-        image: m145/devops-auto:latest
+      - name: bb-site
+        image: getting-started
         imagePullPolicy: Never
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-entrypoint
-  namespace: spring
+  name: bb-entrypoint
+  namespace: default
 spec:
   type: NodePort
   selector:
