@@ -1,12 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  namespace: spring-boot-k8s
   name: spring-boot-k8s
-rules:
-  - apiGroups: ["", "extensions", "apps"]
-    resources: ["configmaps", "pods", "services", "endpoints", "secrets"]
-    verbs: ["get", "list", "watch"]
+  namespace: default
 spec:
   selector:
     matchLabels:
