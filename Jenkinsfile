@@ -22,18 +22,18 @@ pipeline {
           }
         }
         stage('Build Maven'){
-             node {
+            steps{
+                  node {
                   checkout scm
                   result = sh (script: "git log -1 | grep '\\[ci skip\\]'", returnStatus: true) 
                   if (result != 0) {
                     echo "performing build..."
+                      checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/minhtv14/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git']]])
+                     sh 'mvn clean install'
                   } else {
                     echo "not running..."
                   }
                 }
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/minhtv14/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git']]])
-                sh 'mvn clean install'
             }
         }
         stage('Build Docker Image'){
