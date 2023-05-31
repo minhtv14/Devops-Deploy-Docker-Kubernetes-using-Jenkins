@@ -14,7 +14,8 @@ pipeline {
                     sh "git config user.name minhtv14"
                     sh "git add ."
                     sh "git diff --quiet && git diff --staged --quiet || git commit -am 'Added license headers'"
-                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git"
+                    sh "git remote add origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git"
+                    sh "git push -u origin main"
                 }
               }
             }
