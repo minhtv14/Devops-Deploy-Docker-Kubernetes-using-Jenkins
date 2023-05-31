@@ -12,6 +12,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'gitM', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh "git config user.email minhtv145@gmail.com"
                     sh "git config user.name minhtv14"
+                    sh "git config --global --unset credential.helper"
+                    sh "git config credential.helper store"
                     sh "git add ."
                     sh "git diff --quiet && git diff --staged --quiet || git commit -am 'Added license headers'"
                     sh "git remote rm origin"
