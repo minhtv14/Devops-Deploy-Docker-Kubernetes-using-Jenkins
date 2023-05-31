@@ -19,24 +19,17 @@ pipeline {
             }
         }
 	   
-	    stage('Deploy Docker Image'){
-	      
-	      // deploy docker image to nexus
-			
-	      echo "Docker Image Tag Name: devops-auto"
+	 stage('Push image to Hub'){
+            steps{
+                script{
+                    sh "docker stop m145/devops-auto"
 		  
-		  sh "docker stop devops-auto"
+		    sh "docker rm m145/devops-auto"
 		  
-		  sh "docker rm devops-auto"
-		  
-		  sh "docker run --name devops-auto -d -p 2222:2222 devops-auto:latest"
-		  
-		  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-	      //    dockerImage.push("${env.BUILD_NUMBER}")
-	      //      dockerImage.push("latest")
-	      //  }
-	      
-	    }
+		    sh "docker run --name m145/devops-auto -d -p 2222:2222 m145/devops-auto:latest"
+                }
+            }
+        }
 //         stage('Push image to Hub'){
 //             steps{
 //                 script{
