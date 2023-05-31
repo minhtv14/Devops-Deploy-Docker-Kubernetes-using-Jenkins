@@ -28,5 +28,9 @@ public class WelcomeController {
     public ResponseEntity<List<User>> getUsers() {
         return new ResponseEntity<List<User>>(userService.getUsers(), HttpStatus.OK);
     }
-
+    
+    @GetMapping ("/test")
+    public ResponseEntity<String> getTest() {
+        return new ResponseEntity<String>('Success', HttpStatus.OK);
+    }
 }
