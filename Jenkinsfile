@@ -16,8 +16,7 @@ pipeline {
                     sh "git config credential.helper store"
                     sh "git add ."
                     sh "git diff --quiet && git diff --staged --quiet || git commit -am 'Added license headers'"
-                    sh "git remote rm origin"
-                    sh "git remote add origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git"
+                    sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git"
                     sh "git push -u origin main"
                 }
               }
