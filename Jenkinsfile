@@ -17,21 +17,29 @@ pipeline {
                     sh 'docker build -t m145/devops-auto .'
 			
 		    sh 'docker run -p 9001:8080 m145/devops-auto:latest'
-                }
-            }
-        }
-	   
-        stage('Push image to Hub'){
-            steps{
-                script{
-                    sh 'docker login -u m145 -p Minh@docker2002'
+			
+		    sh 'docker login -u m145 -p Minh@docker2002'
 			
 		    sh 'docker tag m145/devops-auto:latest m145/devops-auto:latest'
 			
                     sh 'docker push m145/devops-auto'
+		    
+		    sh 'docker pull m145/devops-auto'
                 }
             }
         }
+	   
+//         stage('Push image to Hub'){
+//             steps{
+//                 script{
+//                     sh 'docker login -u m145 -p Minh@docker2002'
+			
+// 		    sh 'docker tag m145/devops-auto:latest m145/devops-auto:latest'
+			
+//                     sh 'docker push m145/devops-auto'
+//                 }
+//             }
+//         }
 //         stage('Deploy to k8s'){
 //             steps{
 //                 script{
