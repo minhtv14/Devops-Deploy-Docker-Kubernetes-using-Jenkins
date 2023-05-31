@@ -13,6 +13,7 @@ pipeline {
                     sh "git config user.email minhtv145@gmail.com"
                     sh "git config user.name minhtv14"
                     sh "git add ."
+                    sh "git checkout main"
                     sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
                     sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Devops-Deploy-Docker-Kubernetes-using-Jenkins.git"
                 }
