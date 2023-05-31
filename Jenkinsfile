@@ -10,6 +10,7 @@ pipeline {
             script {
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 withCredentials([usernamePassword(credentialsId: 'gitM', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh "git config --global --unset https.proxy"
                     sh "git config user.email minhtv145@gmail.com"
                     sh "git config user.name minhtv14"
                     sh "git add ."
