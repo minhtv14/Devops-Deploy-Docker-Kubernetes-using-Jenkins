@@ -20,7 +20,7 @@ pipeline {
 			
 		    sh 'docker tag m145/devops-auto:latest m145/devops-auto:latest'
 		  
-		    sh "docker rm m145/devops-auto"
+		    sh "docker rm m145/devops-auto:latest"
 			
 		    sh 'docker run -p 9001:8080 m145/devops-auto:latest'
 			
