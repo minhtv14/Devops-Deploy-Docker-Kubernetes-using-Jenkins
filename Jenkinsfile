@@ -19,12 +19,12 @@ pipeline {
             }
         }
 	   
-	 stage('Push image to Hub'){
+	 stage('Deploy Docker'){
             steps{
                 script{
-                    sh "docker stop m145/devops-auto:latest"
+//                     sh "docker stop m145/devops-auto:latest"
 		  
-		    sh "docker rm m145/devops-auto:latest"
+// 		    sh "docker rm m145/devops-auto:latest"
 		  
 		    sh "docker run --name m145/devops-auto:latest -d -p 2222:2222 m145/devops-auto:latest"
                 }
