@@ -22,10 +22,9 @@ pipeline {
 //           }
 //         }
         stage('Build Maven'){
-            steps{
-                script{
-                  node {
-                  checkout scm
+            node {
+                              steps{
+            checkout scm
                   result = sh (script: "git log -1 | grep '\\[ci skip\\]'", returnStatus: true) 
                   if (result != 0) {
                     echo "performing build..."
@@ -34,9 +33,11 @@ pipeline {
                   } else {
                     echo "not running..."
                   }
-                }
-                }
+                  
+    
             }
+                }
+
         }
         stage('Build Docker Image'){
             steps{
