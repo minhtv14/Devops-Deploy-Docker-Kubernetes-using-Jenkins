@@ -23,6 +23,7 @@ pipeline {
         }
         stage('Build Maven'){
             steps{
+                script{
                   node {
                   checkout scm
                   result = sh (script: "git log -1 | grep '\\[ci skip\\]'", returnStatus: true) 
@@ -33,6 +34,7 @@ pipeline {
                   } else {
                     echo "not running..."
                   }
+                }
                 }
             }
         }
