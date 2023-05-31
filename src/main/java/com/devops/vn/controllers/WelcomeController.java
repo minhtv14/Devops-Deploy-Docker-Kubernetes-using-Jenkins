@@ -31,6 +31,7 @@ public class WelcomeController {
     
     @GetMapping ("/test")
     public ResponseEntity<String> getTest() {
-        return new ResponseEntity<String>('Success', HttpStatus.OK);
+        String message = "Success";
+        return new ResponseEntity<String>(message, HttpStatus.OK);
     }
 }
