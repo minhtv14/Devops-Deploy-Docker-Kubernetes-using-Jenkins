@@ -26,7 +26,7 @@ pipeline {
 		  
 		            sh "docker rm devops-auto"
 		  
-		            sh "docker run --name devops-auto -d -p 2222:2222 m145/devops-auto:latest"
+		            sh "docker run --name devops-auto -d -p 8088:8080 m145/devops-auto:latest"
 
                     sh 'docker login -u m145 -p Minh@docker2002'
                     sh 'docker push m145/devops-auto'
