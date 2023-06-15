@@ -22,9 +22,9 @@ pipeline {
             steps{
                 script{
                     
-		            // sh "docker stop m145/devops-auto"
+		            sh "docker stop devops-auto"
 		  
-		            // sh "docker rm m145/devops-auto"
+		            sh "docker rm devops-auto"
 		  
 		            sh "docker run --name devops-auto -d -p 2222:2222 m145/devops-auto:latest"
 
