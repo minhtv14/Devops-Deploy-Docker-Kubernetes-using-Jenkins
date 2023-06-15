@@ -21,6 +21,13 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
+                    
+		            sh "docker stop m145/devops-auto"
+		  
+		            sh "docker rm m145/devops-auto"
+		  
+		            sh "docker run --name m145/devops-auto -d -p 2222:2222 m145/devops-auto:${env.BUILD_NUMBER}"
+
                     sh 'docker login -u m145 -p Minh@docker2002'
                     sh 'docker push m145/devops-auto'
                 }
