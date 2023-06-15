@@ -18,7 +18,7 @@ pipeline {
                 }
             }
         }
-        stage('Push image to Hub'){
+        stage('Deploy Docker & Push image to Hub'){
             steps{
                 script{
                     
@@ -33,12 +33,12 @@ pipeline {
                 }
             }
         }
-        stage('Deploy k8s'){
-            steps{
-                 script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
-                 }
-            }
-        }
+//         stage('Deploy k8s'){
+//             steps{
+//                  script{
+//                     kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
+//                  }
+//             }
+//         }
     }
 }
